@@ -52,6 +52,8 @@ jobs:
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: work directory
         run: cd hugo
+      - name: test directory
+        run: ls -a
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
