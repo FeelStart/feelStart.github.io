@@ -1,4 +1,4 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = '加蛋加葱花～'
-theme = "../themes/hugo-theme-we"
+theme = "themes/ananke"
