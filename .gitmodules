@@ -1,6 +1,3 @@
-[submodule "hugo/themes/ananke"]
-	path = hugo/themes/ananke
-	url = https://github.com/budparr/gohugo-theme-ananke.git
 [submodule "hugo/themes/hugo-theme-we"]
-	path = hugo/themes/hugo-theme-we
+	path = themes/hugo-theme-we
 	url = https://github.com/xiaomingplus/hugo-theme-we.git
