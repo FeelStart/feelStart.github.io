@@ -114,3 +114,5 @@ $ git push -U master
 [github page](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 
 [](https://zhuanlan.zhihu.com/p/37752930)
+
+[workflow](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action)
