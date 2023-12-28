@@ -1,7 +1,7 @@
 ---
 title: "Bug_report_1"
 date: 2023-12-28T07:53:13+08:00
-tags: "BUG 记录"
+tags: ["BUG记录"]
 
 ---
 
