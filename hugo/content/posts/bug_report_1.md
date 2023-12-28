@@ -13,7 +13,7 @@ tags: "BUG 记录"
 
 1 APP 调起微信后，状态栏没有返回 APP 的按钮。
 
-2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
 
 # 问题分析
 
@@ -35,6 +35,10 @@ tags: "BUG 记录"
 
 这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
 
+最后，返回参数加上了，发现不行。
+
+查看 kibana 的数据，后端传的 appid 是公众号号的。 
+
 
 # 反思
 
@@ -50,3 +54,4 @@ tags: "BUG 记录"
 
 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
 
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml
