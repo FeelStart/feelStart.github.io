@@ -1,7 +1,7 @@
 ---
 title: "Ios_apple_intent"
 date: 2023-11-17T18:48:53+08:00
-draft: true
+tags: ["iOS"]
 
 ---
 
