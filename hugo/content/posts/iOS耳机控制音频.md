@@ -13,10 +13,10 @@ import MediaPlayer
 public protocol MediaPlayerCommandCenterObserver: NSObjectProtocol {
 
     @objc
-    optional func remoteCommandCenterPlay(_ center: MediaPlayerCommandCenter)
+    optional func mediaPlayerCommandCenterPlay(_ center: MediaPlayerCommandCenter)
 
     @objc
-    optional func remoteCommandCenterPause(_ center: MediaPlayerCommandCenter)
+    optional func mediaPlayerCommandCenterPause(_ center: MediaPlayerCommandCenter)
 
 }
 
@@ -36,8 +36,8 @@ public class MediaPlayerCommandCenter: NSObject {
             guard let self else { return .commandFailed }
 
             self.enumerateObservers { observer, _ in
-                if let observer, observer.responds(to: #selector(MediaPlayerCommandCenterObserver.remoteCommandCenterPlay)) {
-                    observer.remoteCommandCenterPlay?(self)
+                if let observer, observer.responds(to: #selector(MediaPlayerCommandCenterObserver.mediaPlayerCommandCenterPlay)) {
+                    observer.mediaPlayerCommandCenterPlay?(self)
                 }
 
                 return false
@@ -50,8 +50,8 @@ public class MediaPlayerCommandCenter: NSObject {
             guard let self else { return .commandFailed }
 
             self.enumerateObservers { observer, _ in
-                if let observer, observer.responds(to: #selector(MediaPlayerCommandCenterObserver.remoteCommandCenterPause)) {
-                    observer.remoteCommandCenterPause?(self)
+                if let observer, observer.responds(to: #selector(MediaPlayerCommandCenterObserver.mediaPlayerCommandCenterPause)) {
+                    observer.mediaPlayerCommandCenterPause?(self)
                 }
 
                 return false
@@ -116,6 +116,8 @@ public class MediaPlayerCommandCenter: NSObject {
 ```
 
 ## 参考
+https://developer.apple.com/library/archive/documentation/Audio/Conceptual/AudioSessionProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007875-CH1-SW1
+
 https://cloud.tencent.com/developer/article/2342658
 
 https://cloud.tencent.com/developer/article/2342658
