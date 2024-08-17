@@ -1,10 +1,13 @@
 baseURL = 'https://feelstart.github.io'
 languageCode = ' zh_CN'
 title = '加蛋加葱花～'
-theme = "ananke"
+theme = "FixIt"
+defaultContentLanguage = 'zh-cn'
 
-
-canonifyURLs = true
 
 [params]
-show_reading_time = true
+  [params.author]
+    name = "加蛋加葱花～"
+    email = "1242959598@qq.com"
+    link = ""
+    avatar = ""

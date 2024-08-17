@@ -1,11 +1,9 @@
 ---
-title: "Ios_apple_intent"
+title: "iOS Intent"
 date: 2023-11-17T18:48:53+08:00
 tags: ["iOS"]
 
 ---
-
-# iOS 开发 intents
 
 ## Intens
 

@@ -1,11 +1,10 @@
 ---
-title: "Swift_rethrows"
+title: "Swift rethrows"
 date: 2023-09-20T08:07:06+08:00
 tags: ["swift"]
 
 ---
 
-# swift rethrows
 
 rethrows 顾名思义是传递异常的意思。
 

@@ -1,11 +1,10 @@
 ---
-title: "Swift_lazy_collection"
+title: "Swift lazy collection"
 date: 2024-01-17T13:49:47+08:00
 tags: ["Swift"]
 
 ---
 
-# Swift lazy collections
 
 Swift lazy collections 会延迟操作。这对于大集合来说，可以减少内存的使用和提高性能。但是，对于简单的集合，我们使用数组的效率会更高。
 

@@ -1,3 +1,9 @@
 [submodule "hugo/themes/ananke"]
 	path = hugo/themes/ananke
 	url = https://github.com/budparr/gohugo-theme-ananke.git
+[submodule "hugo/themes/paper"]
+	path = hugo/themes/paper
+	url = https://github.com/nanxiaobei/hugo-paper
+[submodule "hugo/themes/FixIt"]
+	path = hugo/themes/FixIt
+	url = https://github.com/hugo-fixit/FixIt.git

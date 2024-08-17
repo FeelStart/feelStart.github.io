@@ -5,7 +5,6 @@ tags: ["Bug"]
 
 ---
 
-# -[UIViewPropertyAnimator dealloc] 崩溃
 
 ## 崩溃信息 
  ```

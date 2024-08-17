@@ -1,5 +1,5 @@
 ---
-title: "Swift_shim_name"
+title: "名词解析：Swift shim name"
 date: 2024-02-06T10:51:53+08:00
 tags: ["Swift"]
 

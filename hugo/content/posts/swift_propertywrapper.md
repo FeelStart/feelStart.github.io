@@ -1,11 +1,10 @@
 ---
-title: "Swift_propertywrapper"
+title: "Swift propertywrapper"
 date: 2023-09-22T21:04:23+08:00
 tags: ["swift"]
 
 ---
 
-# swift propertyWrapper
 
 日常的开发之前，我们常常要对属性做一下限制。比如考试的分数最高分是 100 分，因此我们的分数不能大于 100。
 
