@@ -1,3 +1,6 @@
+# MacOS 中 Finder 用来存储文件属性的
+.DS_Store
+
+# 忽略构建的目录
 hugo/public
 
-TODO.md
