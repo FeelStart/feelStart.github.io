@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on 加蛋加葱花～</title>
+    <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on 加蛋加葱花～</description>
+    <generator>Hugo</generator>
+    <language> zh_CN</language>
+    <lastBuildDate>Sat, 06 Jan 2024 13:11:32 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sqlite文件格式</title>
+      <link>http://localhost:1313/posts/sqlite%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Sat, 06 Jan 2024 13:11:32 +0800</pubDate>
+      <guid>http://localhost:1313/posts/sqlite%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/</guid>
+      <description>sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。&#xA;1 文件头 sqlite 主文件前 100 字节表示头部。&#xA;偏移 大小 描述 0 16 魔数。其字符串为 &amp;ldquo;SQLite format 3\000&amp;rdquo; 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.</description>
+    </item>
+  </channel>
+</rss>

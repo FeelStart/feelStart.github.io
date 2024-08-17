@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang=" zh_CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>加蛋加葱花～</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="http://localhost:1313/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+      <link href="http://localhost:1313/posts/index.xml" rel="alternate" type="application/rss+xml" title="加蛋加葱花～" />
+      <link href="http://localhost:1313/posts/index.xml" rel="feed" type="application/rss+xml" title="加蛋加葱花～" />
+      
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="加蛋加葱花～">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content=" zh_CN">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="datePublished" content="2024-08-10T12:02:19+08:00">
+  <meta itemprop="dateModified" content="2024-08-10T12:02:19+08:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://localhost:1313/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        加蛋加葱花～
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84/" class="link black dim">
+        《大型网站技术架构》读书笔记
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      读书笔记-《大型网站技术架构》 这是 2012 年写的书，作者是李智慧，曾在阿里担任技术专家，参加阿里基础平台的开发和架构工作。
+1.1 大型网站的特点 高并发，大流量
+高可用
+海量数据
+用户分布广，网络状况复杂
+安全环境恶劣
+需求快速变更，发布频繁
+渐进式发展（从小网站到大网站）
+1.2 误区 一味追寻大厂的解决方案 大厂的解决方案值得我们去借鉴，我们也要有自己坚持的勇气，才能在技术架构中不断地进步。
+为了技术而技术 网站技术是为业务存在的。
+企图用技术解决所有问题 比如 12306 购票，高峰期时的并发是很高的。真正解决问题不在技术架构，而是业务架构。比如，引进排队机制，分时段购票等等。
+2 架构模式 2.1 分层 分层结构在计算机世界无处不在，网络的 7 层通信协议是一种分层结构。大型网站也采用分层结构，可分为应用层，服务层，数据层。
+应用层 负责业务和视图展示
+服务层 用户管理，订单管理等等
+数据层 数据库，缓存，文件，搜索引擎等等
+分层之间要确定合理的边界和接口，开发的过程中严格遵循分层结构的约束，禁止跨层调用。
+2.2 分割 将不同的功能和服务分割开来，包装成高内聚低耦合的模块。一方面有助于开发和维护，另一方面方便将不同的模块分布式部署，提高网站的并发能力和扩展能力。
+2.3 分布式 分层和分割的一个主要的目的是为了切分后的模块便于分布式部署。
+常用分布式方案有：
+分布式应用和服务
+分布式静态资源
+分布式数据和储存
+分布式计算
+2.4 集群 多台服务器部署相同的应用构成集群，提高并发性和可用性。
+2.5 缓存 CDN （服务商）
+反向代理（内部服务器）
+本地缓存
+分布式缓存
+2.6 异步 特性：
+提高系统的可用性 消费者故障后，数据会在消息队列服务器堆积，生产者可以继续服务。消费者恢复后，可以再次从消息队列中获取到数据。
+提高响应速度 2.7 冗余 2.8 自动化 自动化有以下的方面：
+发布
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E6%B7%B1%E5%85%A5%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="link black dim">
+        读书笔记-《深入设计模式》
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      读书笔记-《深入设计模式》 万物有名，我们从名中理解这个世界。在面向对象编程中，这个“名”就是对象，包含属性和行为。
+1 特性 1.1 抽象 面对对象编程是对现实的抽象。当我们要做一个需求时，需要对需求进行划分，定义好概念，把这些抽象为一个个对象，并定义好它们之间的联系。
+1.2 封装 封装定义对象公开和私有的属性和方法。有的编程语言会支持接口的特性，对象暴露出来的是接口，而不是具体的实现。好的封装应该体现充分性。
+1.3 继承 继承是对象的关系。比如人，而人属于动物。人是动物的子类，动物是人的父类。通过继承关系，可以很好地除去重复的代码。
+1.4 多态 多态是同父类，对于同种行为，有不同的表现。
+2 关系 2.1 依赖关系 修改其中一个类，会影响另一个类。
+2.2 关联关系 2.3 聚合关系 一个类包含多个另外的类
+2.4 组合关系 2.5 实现关系 2.6 继承关系 父类与子类之间的关系
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/swift_shim_name/" class="link black dim">
+        Swift_shim_name
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Swift Shim 名词
+Swift 源代码中用看到 SwiftShim，但是不知道它具体的意思。
+Swift 社区有人解释：
+“Shim”是一个比较常见的编程术语，意味着轻量级。它主要用于兼容层，用于纠正平台之间的差异。
+参考 https://forums.swift.org/t/swift-shims/3677/3
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/media_mp3_file_format/" class="link black dim">
+        Mp3 参考资料
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Mp3 参考资料 https://www.audiokit.io/
+https://www.datavoyage.com/mpgscript/mpeghdr.htm
+https://stackoverflow.com/questions/32813803/understanding-mp3-file-structure
+http://mpgedit.org/mpgedit/mpeg_format/MP3Format.html
+https://docs.fileformat.com/audio/mp3/
+https://www.zytrax.com/tech/audio/formats.html
+https://www.engineersgarage.com/mp3-format-understanding-the-basics-of-digital-music/
+https://www.diva-portal.org/smash/get/diva2:830195/FULLTEXT01.pdf
+https://juejin.cn/post/6898309577969532942
+https://juejin.cn/post/7069757779837190181
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/ios%E8%80%B3%E6%9C%BA%E6%8E%A7%E5%88%B6%E9%9F%B3%E9%A2%91/" class="link black dim">
+        IOS耳机控制音频
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      代码 import MediaPlayer @objc public protocol MediaPlayerCommandCenterObserver: NSObjectProtocol { @objc optional func mediaPlayerCommandCenterPlay(_ center: MediaPlayerCommandCenter) @objc optional func mediaPlayerCommandCenterPause(_ center: MediaPlayerCommandCenter) } public class MediaPlayerCommandCenter: NSObject { @objc public static let shared = MediaPlayerCommandCenter() private let observers = NSPointerArray.weakObjects() public override init() { super.init() let center = MPRemoteCommandCenter.shared() center.playCommand.addTarget { [weak self] _ in guard let self else { return .commandFailed } self.enumerateObservers { observer, _ in if let observer, observer.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/swift_lazy_collection/" class="link black dim">
+        Swift_lazy_collection
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Swift lazy collections Swift lazy collections 会延迟操作。这对于大集合来说，可以减少内存的使用和提高性能。但是，对于简单的集合，我们使用数组的效率会更高。
+let numbers = [1, 2, 3].lazy.map { $0 * $0 } print(numbers) // LazyMapCollection&lt;Array&lt;Int&gt;, Int&gt; 参考 Add a Lazy flatMap for Sequences of Optionals
+Use Lazy Collections in Swift
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/bug_uiviewpropertyanimator_crash/" class="link black dim">
+        [UIViewPropertyAnimator dealloc] 崩溃
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      -[UIViewPropertyAnimator dealloc] 崩溃 崩溃信息 ``` It is an error to release a paused or stopped property animator. Property animators must either finish animating or be explicitly stopped and finished before they can be released.
+## 崩溃处理 UIViewPropertyAnimator 重新赋值时，先完成动画。 
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/sqlite%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/" class="link black dim">
+        Sqlite文件格式
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。
+1 文件头 sqlite 主文件前 100 字节表示头部。
+偏移 大小 描述 0 16 魔数。其字符串为 &ldquo;SQLite format 3\000&rdquo; 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/%E8%A7%84%E5%88%922024/" class="link black dim">
+        2024 规划
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      2024 年展望 2024 年已经到来。新的一年，新的展望。以下是我为新的一年立下的 Flag。
+1 坚持写博客，锻炼自己的写作能力
+2 多看书，不限于技术类的书籍。
+3 运动，可以去跑步。
+4 饮食健康，少吃垃圾食品。
+5 放松心态，但不躺平。关注成本和收益。
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          <div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="http://localhost:1313/posts/bug%E5%BE%AE%E4%BF%A1%E7%82%B9%E5%AE%8C%E6%88%90%E5%90%8E%E6%B2%A1%E6%9C%89%E5%9B%9E%E5%88%B0app/" class="link black dim">
+        BUG：微信委托代扣，点“完成”按钮没返回 APP
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      微信委托代扣，点“完成”按钮没返回 APP 最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。
+从录屏中发现两个问题：
+1 APP 调起微信后，状态栏没有返回 APP 的按钮。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
+问题分析 问题 1:
+网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。
+问题 2:
+之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。
+查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。
+查看 微信常见问题，里面第 18 条，有提到可能有 4 种情况。
+排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。
+计划重现下，看是否有哪些条件设置错了。
+这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
+最后，返回参数加上了，发现不行。
+查看 kibana 的数据，后端传的 appid 是公众号号的。
+反思 1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。
+2 问题分析搜索的关键词不准。
+3 问题分析的时候，没有把握整体，忽略细节。
+参考 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml
+    </div>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="http://localhost:1313/posts/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="http://localhost:1313/posts/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="http://localhost:1313/posts/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  加蛋加葱花～ 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

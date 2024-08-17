@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang=" zh_CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sqlite文件格式 | 加蛋加葱花～</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。
+1 文件头 sqlite 主文件前 100 字节表示头部。
+偏移 大小 描述 0 16 魔数。其字符串为 &ldquo;SQLite format 3\000&rdquo; 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="http://localhost:1313/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/sqlite%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F/">
+  <meta property="og:site_name" content="加蛋加葱花～">
+  <meta property="og:title" content="Sqlite文件格式">
+  <meta property="og:description" content="sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。
+1 文件头 sqlite 主文件前 100 字节表示头部。
+偏移 大小 描述 0 16 魔数。其字符串为 “SQLite format 3\000” 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.">
+  <meta property="og:locale" content=" zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-01-06T13:11:32+08:00">
+    <meta property="article:modified_time" content="2024-01-06T13:11:32+08:00">
+    <meta property="article:tag" content="数据库">
+
+  <meta itemprop="name" content="Sqlite文件格式">
+  <meta itemprop="description" content="sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。
+1 文件头 sqlite 主文件前 100 字节表示头部。
+偏移 大小 描述 0 16 魔数。其字符串为 “SQLite format 3\000” 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.">
+  <meta itemprop="datePublished" content="2024-01-06T13:11:32+08:00">
+  <meta itemprop="dateModified" content="2024-01-06T13:11:32+08:00">
+  <meta itemprop="wordCount" content="275">
+  <meta itemprop="keywords" content="数据库">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sqlite文件格式">
+  <meta name="twitter:description" content="sqlite 文件格式 sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。
+1 文件头 sqlite 主文件前 100 字节表示头部。
+偏移 大小 描述 0 16 魔数。其字符串为 “SQLite format 3\000” 16 2 页数目 18 1 写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 19 1 读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。 20 1 每页尾部未使用的保留字节。通常为 0 21 1 最大嵌入有效载荷部分。必须是 64 22 1 最小嵌入有效载荷部分。必须是 32 23 1 叶子有效载荷部分。必须是 32 24 4 文件更改计数 28 4 数据库文件的大小（以页为单位） 32 4 第一个空闲主干页的页码 36 4 全部空闲页的数目 40 4 schema 缓存 44 4 schema 格式数字。支持 1、2、3、4.">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://localhost:1313/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        加蛋加葱花～
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Sqlite文件格式</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2024-01-06T13:11:32+08:00">January 6, 2024</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - 2 minutes read </span>
+        <span class="f6 mv4 dib tracked"> - 275 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="sqlite-文件格式">sqlite 文件格式</h1>
+<p>sqlite 有个主文件。在数据库事务时，还会创建回滚日志或者预写文件。</p>
+<h2 id="1-文件头">1 文件头</h2>
+<p>sqlite 主文件前 100 字节表示头部。</p>
+<table>
+<thead>
+<tr>
+<th>偏移</th>
+<th>大小</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>16</td>
+<td>魔数。其字符串为 &ldquo;SQLite format 3\000&rdquo;</td>
+</tr>
+<tr>
+<td>16</td>
+<td>2</td>
+<td>页数目</td>
+</tr>
+<tr>
+<td>18</td>
+<td>1</td>
+<td>写入版本的文件格式。1 表示遗留的格式，2 表示 WAL。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>1</td>
+<td>读入版本的文件格式。1 表示遗留的格式，2 表示 WAL。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>1</td>
+<td>每页尾部未使用的保留字节。通常为 0</td>
+</tr>
+<tr>
+<td>21</td>
+<td>1</td>
+<td>最大嵌入有效载荷部分。必须是 64</td>
+</tr>
+<tr>
+<td>22</td>
+<td>1</td>
+<td>最小嵌入有效载荷部分。必须是 32</td>
+</tr>
+<tr>
+<td>23</td>
+<td>1</td>
+<td>叶子有效载荷部分。必须是 32</td>
+</tr>
+<tr>
+<td>24</td>
+<td>4</td>
+<td>文件更改计数</td>
+</tr>
+<tr>
+<td>28</td>
+<td>4</td>
+<td>数据库文件的大小（以页为单位）</td>
+</tr>
+<tr>
+<td>32</td>
+<td>4</td>
+<td>第一个空闲主干页的页码</td>
+</tr>
+<tr>
+<td>36</td>
+<td>4</td>
+<td>全部空闲页的数目</td>
+</tr>
+<tr>
+<td>40</td>
+<td>4</td>
+<td>schema 缓存</td>
+</tr>
+<tr>
+<td>44</td>
+<td>4</td>
+<td>schema 格式数字。支持 1、2、3、4.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>4</td>
+<td>默认页缓存大小</td>
+</tr>
+<tr>
+<td>52</td>
+<td>4</td>
+<td>auto-vacuum 或 incremental-vacuum 模式下，最大 root BTree 的页码</td>
+</tr>
+<tr>
+<td>56</td>
+<td>4</td>
+<td>数据库文本编码。1 表示 UTF-8，2 表示 UTF-16le，3 表示 UTF-16be</td>
+</tr>
+<tr>
+<td>60</td>
+<td>4</td>
+<td>所读的 “用户版本”。</td>
+</tr>
+<tr>
+<td>64</td>
+<td>4</td>
+<td>True 表示 incremental-vacuum 模式。</td>
+</tr>
+<tr>
+<td>68</td>
+<td>4</td>
+<td>“Application ID”</td>
+</tr>
+<tr>
+<td>72</td>
+<td>20</td>
+<td>保留为以后扩展</td>
+</tr>
+<tr>
+<td>92</td>
+<td>4</td>
+<td>版本有效号码</td>
+</tr>
+<tr>
+<td>96</td>
+<td>4</td>
+<td>sqlite 版本有效号码</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-页">2 页</h2>
+<p>数据库文件由一个个页组成。页大小是 512 和 65536 之间的 2 的幂。第一个页的页码为 1。</p>
+<p><img src="images/sqlite_page.png" alt=""></p>
+<h2 id="21-页的用法">2.1 页的用法</h2>
+<h3 id="211-用于锁字节的页">2.1.1 用于锁字节的页</h3>
+<p>由操作系统特殊的 VFS 实现的文件锁。比如 window 的 lockfile()。</p>
+<p>sqlite 不会对该页进行对写。</p>
+<h3 id="212-用于空闲的页">2.1.2 用于空闲的页</h3>
+<p>空闲页又分：</p>
+<ul>
+<li>主干空闲页 (trunk page)</li>
+<li>叶子空闲页 (leaf page)</li>
+</ul>
+<p><img src="images/sqlite_freelist_page.png" alt=""></p>
+<h3 id="213-用于-b-tree-的页">2.1.3 用于 b-tree 的页</h3>
+<h3 id="214-用于有效负载溢出的页">2.1.4 用于有效负载溢出的页</h3>
+<p>如 Index BTree 超出的 key 会存储在这里。</p>
+<h3 id="215-用于指针映射的页">2.1.5 用于指针映射的页</h3>
+<h2 id="3-b-tree">3 b-tree</h2>
+<p>在面向页存储的设备上，b-tree 算法用唯一且有序的 key 存储数据。</p>
+<p>sqlite 中 b-tree 有两种变体：</p>
+<ul>
+<li>
+<p>Table b-tree</p>
+<p>Table b-tree 用 64 位有符号整数作为 key，存储数据在叶子节点。</p>
+</li>
+<li>
+<p>Index b-tree</p>
+<p>Index b-tree 只存储 key。</p>
+</li>
+</ul>
+<p>b-tree 有两种：</p>
+<ul>
+<li>
+<p>内部页（interior page）</p>
+<p>包含 k 个 keys 和 k + 1 个指向子页的指针。指针是 32 位无符号的页码。</p>
+</li>
+<li>
+<p>叶页（leaf page）</p>
+<p>包含 key。如果是 Table b-tree，还会有对应的数据。</p>
+</li>
+</ul>
+<h3 id="31-单元cell">3.1 单元（cell）</h3>
+<ul>
+<li>
+<p>内部页中，单元包括 key 和指针（pointer）。</p>
+</li>
+<li>
+<p>叶子页中：</p>
+<ul>
+<li>Index b-tree，单元包括 key。</li>
+<li>Table b-tree，单元包括 key 和数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="32-b-tree-区域">3.2 b-tree 区域</h3>
+<p>Btree 按顺序分以下区域：</p>
+<ul>
+<li>100 字节的头部</li>
+<li>8 或 12 字节叶头</li>
+<li>cell 指针数组</li>
+<li>未分配空间</li>
+<li>单元内容</li>
+<li>保留</li>
+</ul>
+<h3 id="33-叶头">3.3 叶头</h3>
+<table>
+<thead>
+<tr>
+<th>偏移</th>
+<th>大小</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Btree 的类型。2 表示内部 index btree 页，5 表示内部 table btree 页，10 表示叶子 index btree，13 表示叶子 table btree</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>页的第一个空闲块</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>单元的数目</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>单元内容开始区域</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1</td>
+<td>单元内容碎片字节数</td>
+</tr>
+<tr>
+<td>8</td>
+<td>4</td>
+<td>最右边的指针</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考">参考</h2>
+<p><a href="https://www.sqlite.org/fileformat.html">doc</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">数据库</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  加蛋加葱花～ 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

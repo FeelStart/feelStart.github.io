@@ -1,0 +1,2 @@
+#!/bin/bash
+(cd hugo && hugo new posts/$1 && open -a MacDown content/posts/$1)

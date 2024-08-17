@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang=" zh_CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Ios_apple_intent | 加蛋加葱花～</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="iOS 开发 intents Intens 在主项目创建 Intent 目录。
+创建打开的 Intent：
+struct MainIntent: AppIntent { static var title: LocalizedStringResource = &#34;MainIntent&#34; static var openAppWhenRun: Bool = true @MainActor func perform() async throws -&gt; some IntentResult { return .result() } } /// 快捷指令（可以在 Shortcut APP 上展示） struct OpenShortcutProvider: AppShortcutsProvider { static var appShortcuts: [AppShortcut] { AppShortcut(intent: MainIntent() , phrases: [&#34;Open \(.applicationName)&#34;], shortTitle: &#34;Open App&#34;, systemImageName: &#34;&#34;) } } 唤醒 APP 方案 1：通过 Intent 唤起 App 后，复用现有的链接打开页面逻辑，调用 OpenURL 打开对应的页面。">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="http://localhost:1313/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/ios_apple_intent/">
+  <meta property="og:site_name" content="加蛋加葱花～">
+  <meta property="og:title" content="Ios_apple_intent">
+  <meta property="og:description" content="iOS 开发 intents Intens 在主项目创建 Intent 目录。
+创建打开的 Intent：
+struct MainIntent: AppIntent { static var title: LocalizedStringResource = &#34;MainIntent&#34; static var openAppWhenRun: Bool = true @MainActor func perform() async throws -&gt; some IntentResult { return .result() } } /// 快捷指令（可以在 Shortcut APP 上展示） struct OpenShortcutProvider: AppShortcutsProvider { static var appShortcuts: [AppShortcut] { AppShortcut(intent: MainIntent() , phrases: [&#34;Open \(.applicationName)&#34;], shortTitle: &#34;Open App&#34;, systemImageName: &#34;&#34;) } } 唤醒 APP 方案 1：通过 Intent 唤起 App 后，复用现有的链接打开页面逻辑，调用 OpenURL 打开对应的页面。">
+  <meta property="og:locale" content=" zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-11-17T18:48:53+08:00">
+    <meta property="article:modified_time" content="2023-11-17T18:48:53+08:00">
+    <meta property="article:tag" content="IOS">
+
+  <meta itemprop="name" content="Ios_apple_intent">
+  <meta itemprop="description" content="iOS 开发 intents Intens 在主项目创建 Intent 目录。
+创建打开的 Intent：
+struct MainIntent: AppIntent { static var title: LocalizedStringResource = &#34;MainIntent&#34; static var openAppWhenRun: Bool = true @MainActor func perform() async throws -&gt; some IntentResult { return .result() } } /// 快捷指令（可以在 Shortcut APP 上展示） struct OpenShortcutProvider: AppShortcutsProvider { static var appShortcuts: [AppShortcut] { AppShortcut(intent: MainIntent() , phrases: [&#34;Open \(.applicationName)&#34;], shortTitle: &#34;Open App&#34;, systemImageName: &#34;&#34;) } } 唤醒 APP 方案 1：通过 Intent 唤起 App 后，复用现有的链接打开页面逻辑，调用 OpenURL 打开对应的页面。">
+  <meta itemprop="datePublished" content="2023-11-17T18:48:53+08:00">
+  <meta itemprop="dateModified" content="2023-11-17T18:48:53+08:00">
+  <meta itemprop="wordCount" content="108">
+  <meta itemprop="keywords" content="IOS">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ios_apple_intent">
+  <meta name="twitter:description" content="iOS 开发 intents Intens 在主项目创建 Intent 目录。
+创建打开的 Intent：
+struct MainIntent: AppIntent { static var title: LocalizedStringResource = &#34;MainIntent&#34; static var openAppWhenRun: Bool = true @MainActor func perform() async throws -&gt; some IntentResult { return .result() } } /// 快捷指令（可以在 Shortcut APP 上展示） struct OpenShortcutProvider: AppShortcutsProvider { static var appShortcuts: [AppShortcut] { AppShortcut(intent: MainIntent() , phrases: [&#34;Open \(.applicationName)&#34;], shortTitle: &#34;Open App&#34;, systemImageName: &#34;&#34;) } } 唤醒 APP 方案 1：通过 Intent 唤起 App 后，复用现有的链接打开页面逻辑，调用 OpenURL 打开对应的页面。">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://localhost:1313/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        加蛋加葱花～
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Ios_apple_intent</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-11-17T18:48:53+08:00">November 17, 2023</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 108 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="ios-开发-intents">iOS 开发 intents</h1>
+<h2 id="intens">Intens</h2>
+<p>在主项目创建 Intent 目录。</p>
+<p>创建打开的 Intent：</p>
+<pre tabindex="0"><code>
+struct MainIntent: AppIntent {
+    static var title: LocalizedStringResource = &#34;MainIntent&#34;
+
+    static var openAppWhenRun: Bool = true
+
+    @MainActor
+    func perform() async throws -&gt; some IntentResult {
+        return .result()
+    }
+}
+
+/// 快捷指令（可以在 Shortcut APP 上展示）
+struct OpenShortcutProvider: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(intent: MainIntent()
+                    , phrases: [&#34;Open \(.applicationName)&#34;],
+                    shortTitle: &#34;Open App&#34;,
+                    systemImageName: &#34;&#34;)
+    }
+}
+</code></pre><h2 id="唤醒-app">唤醒 APP</h2>
+<p>方案 1：通过 Intent 唤起 App 后，复用现有的链接打开页面逻辑，调用 OpenURL 打开对应的页面。</p>
+<p>方案 2: 设计路由</p>
+<h2 id="问题">问题</h2>
+<ul>
+<li>使用 Xcode 提供的 Apple Intents Extensions 模版创建的 Intent 会不成功。而在主项目直接创建的 Intent 可以。</li>
+</ul>
+<h2 id="参考">参考</h2>
+<p><a href="https://developer.apple.com/documentation/appintents">docs</a></p>
+<p><a href="https://www.avanderlee.com/swiftui/app-intents-spotlight-integration-using-shortcuts/">App Intents Spotlight integration using Shortcuts</a></p>
+<p><a href="https://blog.csdn.net/qq_43441647/article/details/133017285">iOS-自定义Intent及ShortCut</a></p>
+<p><a href="https://stackoverflow.com/questions/76500378/how-to-open-app-via-appintents-conditionally">Open App background</a></p>
+<p><a href="https://alexanderlogan.co.uk/blog/wwdc22/04-intents"></a></p>
+<p><a href="https://alexanderlogan.co.uk/blog/wwdc22/04-intents"></a></p>
+<p><a href="https://juejin.cn/post/6844903621839028232"></a></p>
+<p><a href="https://developer.apple.com/documentation/sirikit/intent_handling_infrastructure/creating_an_intents_app_extension"></a></p>
+<p><a href="https://openradar.appspot.com/FB11739659"></a></p>
+<p><a href="https://juejin.cn/post/6866250776281350157">extension</a></p>
+<p><a href="https://developer.apple.com/forums/thread/710552">直接创建 extension 错误</a></p>
+<p><a href="https://developer.apple.com/forums/thread/717272">autoShortcutProviderMangledName</a></p>
+<p><a href="https://developer.apple.com/documentation/bundleresources/information_property_list/uiapplicationshortcutitems/uiapplicationshortcutitemtitle">info.plist</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="http://localhost:1313/tags/ios/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">IOS</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  加蛋加葱花～ 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

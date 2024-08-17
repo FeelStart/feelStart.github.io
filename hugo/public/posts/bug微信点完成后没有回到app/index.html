@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang=" zh_CN">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>BUG：微信委托代扣，点“完成”按钮没返回 APP | 加蛋加葱花～</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="微信委托代扣，点“完成”按钮没返回 APP 最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。
+从录屏中发现两个问题：
+1 APP 调起微信后，状态栏没有返回 APP 的按钮。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
+问题分析 问题 1:
+网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。
+问题 2:
+之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。
+查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。
+查看 微信常见问题，里面第 18 条，有提到可能有 4 种情况。
+排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。
+计划重现下，看是否有哪些条件设置错了。
+这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
+最后，返回参数加上了，发现不行。
+查看 kibana 的数据，后端传的 appid 是公众号号的。
+反思 1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。
+2 问题分析搜索的关键词不准。
+3 问题分析的时候，没有把握整体，忽略细节。
+参考 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml">
+    <meta name="generator" content="Hugo 0.128.2">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="http://localhost:1313/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/bug%E5%BE%AE%E4%BF%A1%E7%82%B9%E5%AE%8C%E6%88%90%E5%90%8E%E6%B2%A1%E6%9C%89%E5%9B%9E%E5%88%B0app/">
+  <meta property="og:site_name" content="加蛋加葱花～">
+  <meta property="og:title" content="BUG：微信委托代扣，点“完成”按钮没返回 APP">
+  <meta property="og:description" content="微信委托代扣，点“完成”按钮没返回 APP 最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。
+从录屏中发现两个问题：
+1 APP 调起微信后，状态栏没有返回 APP 的按钮。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
+问题分析 问题 1:
+网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。
+问题 2:
+之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。
+查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。
+查看 微信常见问题，里面第 18 条，有提到可能有 4 种情况。
+排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。
+计划重现下，看是否有哪些条件设置错了。
+这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
+最后，返回参数加上了，发现不行。
+查看 kibana 的数据，后端传的 appid 是公众号号的。
+反思 1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。
+2 问题分析搜索的关键词不准。
+3 问题分析的时候，没有把握整体，忽略细节。
+参考 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml">
+  <meta property="og:locale" content=" zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-28T07:53:13+08:00">
+    <meta property="article:modified_time" content="2023-12-28T07:53:13+08:00">
+    <meta property="article:tag" content="BUG">
+
+  <meta itemprop="name" content="BUG：微信委托代扣，点“完成”按钮没返回 APP">
+  <meta itemprop="description" content="微信委托代扣，点“完成”按钮没返回 APP 最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。
+从录屏中发现两个问题：
+1 APP 调起微信后，状态栏没有返回 APP 的按钮。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
+问题分析 问题 1:
+网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。
+问题 2:
+之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。
+查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。
+查看 微信常见问题，里面第 18 条，有提到可能有 4 种情况。
+排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。
+计划重现下，看是否有哪些条件设置错了。
+这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
+最后，返回参数加上了，发现不行。
+查看 kibana 的数据，后端传的 appid 是公众号号的。
+反思 1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。
+2 问题分析搜索的关键词不准。
+3 问题分析的时候，没有把握整体，忽略细节。
+参考 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml">
+  <meta itemprop="datePublished" content="2023-12-28T07:53:13+08:00">
+  <meta itemprop="dateModified" content="2023-12-28T07:53:13+08:00">
+  <meta itemprop="wordCount" content="63">
+  <meta itemprop="keywords" content="BUG">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BUG：微信委托代扣，点“完成”按钮没返回 APP">
+  <meta name="twitter:description" content="微信委托代扣，点“完成”按钮没返回 APP 最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。
+从录屏中发现两个问题：
+1 APP 调起微信后，状态栏没有返回 APP 的按钮。
+2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。
+问题分析 问题 1:
+网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。
+问题 2:
+之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。
+查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。
+查看 微信常见问题，里面第 18 条，有提到可能有 4 种情况。
+排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。
+计划重现下，看是否有哪些条件设置错了。
+这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。
+最后，返回参数加上了，发现不行。
+查看 kibana 的数据，后端传的 appid 是公众号号的。
+反思 1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。
+2 问题分析搜索的关键词不准。
+3 问题分析的时候，没有把握整体，忽略细节。
+参考 https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios
+https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml">
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://localhost:1313/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        加蛋加葱花～
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">BUG：微信委托代扣，点“完成”按钮没返回 APP</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-12-28T07:53:13+08:00">December 28, 2023</time>
+      
+
+      
+      
+        <span class="f6 mv4 dib tracked"> - One minute read </span>
+        <span class="f6 mv4 dib tracked"> - 63 words </span>
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="微信委托代扣点完成按钮没返回-app">微信委托代扣，点“完成”按钮没返回 APP</h1>
+<p>最近，公司做个微信委托代扣功能。功能测试时，发现个问题，录屏下来。</p>
+<p>从录屏中发现两个问题：</p>
+<p>1 APP 调起微信后，状态栏没有返回 APP 的按钮。</p>
+<p>2 微信委托代扣成功后，点 “完成” 按钮，没有返回 APP，要更换为 APP 的。</p>
+<h1 id="问题分析">问题分析</h1>
+<p>问题 1:</p>
+<p>网上查资料，其时苹果的特性，并且不能手动关闭。于是，找到出现问题的同事，验证一下。发现其机型录屏的时候，状态栏没有返回 APP 的按钮。录屏结束后，有返回 APP 的按钮。这是符号预期的。</p>
+<p>问题 2:</p>
+<p>之前，我们有接入过微信的 SDK，有分享的功能，APP 与微信时互通的。</p>
+<p>查看网上的资料，发现也有人遇到相似的问题，但是并不符合我们的情况。</p>
+<p>查看 <a href="https://developers.weixin.qq.com/community/pay/doc/0004aaa01e8908b165985d15e5bc08">微信常见问题</a>，里面第 18 条，有提到可能有 4 种情况。</p>
+<p>排除了情况 1，2，情况 3 其他同事排除了，情况 4 应该也不太可能。</p>
+<p>计划重现下，看是否有哪些条件设置错了。</p>
+<p>这时，大家一起聊这个问题，发现 Mweb，Android，iOS 都有这个问题。有个同事查看了微信的文档，发现预签约时，有个参数可以控制返回 APP。</p>
+<p>最后，返回参数加上了，发现不行。</p>
+<p>查看 kibana 的数据，后端传的 appid 是公众号号的。</p>
+<h1 id="反思">反思</h1>
+<p>1 做功能的时候，只关注自己的部分，没有对功能的全貌进行了解。</p>
+<p>2 问题分析搜索的关键词不准。</p>
+<p>3 问题分析的时候，没有把握整体，忽略细节。</p>
+<h1 id="参考">参考</h1>
+<p><a href="https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios">https://apple.stackexchange.com/questions/320596/disable-return-to-previous-app-button-in-ios</a></p>
+<p><a href="https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml">https://pay.weixin.qq.com/wiki/doc/api/wxpay_v2/papay/chapter3_1.shtml</a></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="http://localhost:1313/tags/bug/" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">BUG</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://localhost:1313/" >
+    &copy;  加蛋加葱花～ 2024 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多媒体 on 加蛋加葱花～</title>
+    <link>http://localhost:1313/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/</link>
+    <description>Recent content in 多媒体 on 加蛋加葱花～</description>
+    <generator>Hugo</generator>
+    <language> zh_CN</language>
+    <lastBuildDate>Thu, 01 Feb 2024 11:21:30 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%A4%9A%E5%AA%92%E4%BD%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mp3 参考资料</title>
+      <link>http://localhost:1313/posts/media_mp3_file_format/</link>
+      <pubDate>Thu, 01 Feb 2024 11:21:30 +0800</pubDate>
+      <guid>http://localhost:1313/posts/media_mp3_file_format/</guid>
+      <description>Mp3 参考资料 https://www.audiokit.io/&#xA;https://www.datavoyage.com/mpgscript/mpeghdr.htm&#xA;https://stackoverflow.com/questions/32813803/understanding-mp3-file-structure&#xA;http://mpgedit.org/mpgedit/mpeg_format/MP3Format.html&#xA;https://docs.fileformat.com/audio/mp3/&#xA;https://www.zytrax.com/tech/audio/formats.html&#xA;https://www.engineersgarage.com/mp3-format-understanding-the-basics-of-digital-music/&#xA;https://www.diva-portal.org/smash/get/diva2:830195/FULLTEXT01.pdf&#xA;https://juejin.cn/post/6898309577969532942&#xA;https://juejin.cn/post/7069757779837190181</description>
+    </item>
+  </channel>
+</rss>

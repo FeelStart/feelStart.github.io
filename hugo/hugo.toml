@@ -1,0 +1,10 @@
+baseURL = 'https://feelstart.github.io'
+languageCode = ' zh_CN'
+title = '加蛋加葱花～'
+theme = "ananke"
+
+
+canonifyURLs = true
+
+[params]
+show_reading_time = true
