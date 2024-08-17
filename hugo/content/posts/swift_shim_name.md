@@ -1,7 +1,7 @@
 ---
 title: "Swift_shim_name"
 date: 2024-02-06T10:51:53+08:00
-draft: true
+tags: ["Swift"]
 
 ---
 

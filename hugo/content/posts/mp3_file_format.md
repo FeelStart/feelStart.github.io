@@ -1,11 +1,11 @@
 ---
-title: "Mp3_file_format"
+title: "Mp3 参考资料"
 date: 2024-02-01T11:21:30+08:00
-draft: true
+tags: ["多媒体"]
 
 ---
 
-## 参考
+# Mp3 参考资料
 
 https://www.audiokit.io/
 
