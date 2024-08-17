@@ -4,3 +4,6 @@
 # 忽略构建的目录
 hugo/public
 
+hugo/assets/jsconfig.json
+hugo/resources/_gen/assets/css/style.scss_26962b449d539ee5c1301a7879e5bb0e.content
+hugo/resources/_gen/assets/css/style.scss_26962b449d539ee5c1301a7879e5bb0e.json
