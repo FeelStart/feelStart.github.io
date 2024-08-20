@@ -1,5 +1,8 @@
 # TODO 
 
+[Metal cumpute Demo](https://developer.apple.com/documentation/metal/performing_calculations_on_a_gpu
+)
+
 # Doing
 
 # Done
