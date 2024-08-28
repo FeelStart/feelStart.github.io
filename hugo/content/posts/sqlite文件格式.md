@@ -1,7 +1,8 @@
 ---
-title: "Sqlite文件格式"
+title: "sqlite文件格式"
 date: 2024-01-06T13:11:32+08:00
-tags: ["数据库"]
+tags: ["sqlite"]
+categories: ["编程"]
 
 ---
 
