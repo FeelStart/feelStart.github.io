@@ -5,6 +5,14 @@ theme = "FixIt"
 defaultContentLanguage = 'zh-cn'
 
 
+[menus]
+  [[menus.main]]
+    name = 'Categories'
+    pageRef = '/categories'
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+  
 [params]
   [params.author]
     name = "加蛋加葱花～"
