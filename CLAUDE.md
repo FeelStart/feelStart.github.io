@@ -14,7 +14,11 @@
   workflows/
     hugo.yml   # CI/CD
 docs/          # 文档、规范（未来）
-scripts/       # 自动化脚本（未来）
+scripts/
+  new-post.sh  # 交互式新建文章
+  new-log.sh   # 新建日志条目
+  publish.sh   # 一键发布
+  compress-images.sh  # 批量压缩图片
 hugo/
   content/
     posts/
@@ -22,10 +26,14 @@ hugo/
       tech/    # 工具、媒体、数据库等
       reading/ # 读书笔记
       life/    # 生活、规划、随笔
+    logs/      # 日常日志（无需标题，时间戳命名）
     search.md  # 搜索页
     archives.md # 归档页
   static/
-    images/    # 图片资源
+    images/
+      apple/   # apple 相关图片
+      tech/    # 技术相关图片
+      reading/ # 读书相关图片
   themes/
     PaperMod/  # 主题 submodule
   hugo.toml    # 站点配置
@@ -88,6 +96,14 @@ hugo new content posts/tech/文章名.md    # 工具、媒体等
 hugo new content posts/reading/文章名.md # 读书笔记
 hugo new content posts/life/文章名.md    # 生活随笔
 ```
+
+## 新建日志
+
+```bash
+./scripts/new-log.sh
+```
+
+文件名自动用时间戳（如 `2026-05-25-1430.md`），title 自动填当前日期时间，无需手动填写。日志存放在 `hugo/content/logs/`，分类为 `日志`。
 
 ## 本地预览
 
