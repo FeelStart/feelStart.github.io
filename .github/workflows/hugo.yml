@@ -40,19 +40,20 @@ jobs:
       - name: Cache Hugo resources
         uses: actions/cache@v4
         with:
-          path: resources
-          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('hugo.toml') }}
+          path: hugo/resources
+          key: ${{ runner.os }}-hugo-resources-${{ hashFiles('hugo/hugo.toml') }}
           restore-keys: |
             ${{ runner.os }}-hugo-resources-
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+        working-directory: hugo
         run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: hugo/public
 
   deploy:
     environment:

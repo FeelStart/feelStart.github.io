@@ -10,16 +10,23 @@
 ## 目录结构
 
 ```
-content/
-  posts/     # 所有文章
-  search.md  # 搜索页
-  archives.md # 归档页
-themes/
-  PaperMod/  # 主题 submodule
 .github/
   workflows/
-    hugo.yml # CI/CD
-hugo.toml    # 站点配置
+    hugo.yml   # CI/CD
+docs/          # 文档、规范（未来）
+scripts/       # 自动化脚本（未来）
+hugo/
+  content/
+    posts/     # 所有文章
+    search.md  # 搜索页
+    archives.md # 归档页
+  static/
+    images/    # 图片资源
+  themes/
+    PaperMod/  # 主题 submodule
+  hugo.toml    # 站点配置
+CLAUDE.md      # AI 工具配置
+.gitignore
 ```
 
 ## Front Matter 规范
@@ -65,12 +72,14 @@ tags: ["Swift"]
 ## 新建文章
 
 ```bash
+cd hugo
 hugo new content posts/文章名.md
 ```
 
 ## 本地预览
 
 ```bash
+cd hugo
 hugo server
 ```
 
