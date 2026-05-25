@@ -16,11 +16,11 @@ sqlite 只有一个主文件，我们将探究该文件组织结构。
 
 * 创建表 Person，并插入 3 条数据
 
-![](/images/sqlite_1.png)
+![](/images/tech/sqlite_1.png)
 
 * 获取页信息
 
-![](/images/sqlite_2.png)
+![](/images/tech/sqlite_2.png)
 
 ## 1 查看文件
 
@@ -28,13 +28,13 @@ sqlite 只有一个主文件，我们将探究该文件组织结构。
 
 HexFiend 打开数据库文件
 
-![](/images/sqlite_3.png)
+![](/images/tech/sqlite_3.png)
 
 可以看出，数据库文件是有 “SQLite format 3” 开头的，这是个魔数。
 
 文件库文件有 100 字节的头部，在页1 中，只有这一页有这个头部。
 
-![](/images/sqlite_7.png)
+![](/images/tech/sqlite_7.png)
 
 
 页的大小由偏移 16 的 2 个字节决定，从图可知 ``10 00``。这个大端法，所以为 0x1000 = 4096，和上面的命令行得到的结果一致。
@@ -45,7 +45,7 @@ HexFiend 打开数据库文件
 
 在页头部偏移 5，有页内容的偏移。这里是 0xFB8 = 4024。
 
-![](/images/sqlite_4.png)
+![](/images/tech/sqlite_4.png)
 
 这里是 sqlite_master 表的数据，数据库内部的表。
 
@@ -57,11 +57,11 @@ HexFiend 打开数据库文件
 
 * 类型列表
 
-![](/images/sqlite_5.png)
+![](/images/tech/sqlite_5.png)
 
 * 数据
 
-![](/images/sqlite_6.png)
+![](/images/tech/sqlite_6.png)
 
 首位数据类型为 0x17 = 23，为 >= 13 的奇数，按照规则，这是 5 字节的字符串，其值正好是 “table”。
 
@@ -69,13 +69,13 @@ HexFiend 打开数据库文件
 
 查询 sqlite_master 表，知道 Person 表的数据在页码为 2 的页中。而从头部我们也知道，每一页的大小为 4096 字节，所以我们可以跳转到该页。
 
-![](/images/sqlite_8.png)
+![](/images/tech/sqlite_8.png)
 
 首字节为 0x0D，说明为叶子表 b-tree 页。
 
 内容的再该页偏移为 0xFD8 = 4056，加上该页偏移 （4096），跳转到该偏移。其中从 05 ...
 
-![](/images/sqlite_9.png)
+![](/images/tech/sqlite_9.png)
 
 在该例子中，顺序依次表示：
 

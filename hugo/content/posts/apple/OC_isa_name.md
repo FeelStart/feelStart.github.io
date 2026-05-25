@@ -14,7 +14,7 @@ isa means “is a”. Every Objective-C object (including every class) has an is
 
 ```
 
-![/images/class_diagram.jpeg]()
+![](/images/apple/class_diagram.jpeg)
 
 ## 参考
 

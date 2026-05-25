@@ -1,5 +1,5 @@
 baseURL = 'https://feelstart.github.io'
-languageCode = 'zh-CN'
+locale = 'zh-CN'
 title = '加蛋加葱花～'
 theme = 'PaperMod'
 defaultContentLanguage = 'zh-cn'
@@ -43,6 +43,7 @@ buildFuture = false
   ShowCodeCopyButtons = true
   ShowToc = true
   TocOpen = false
+  ShowRelatedPosts = true
 
   [params.homeInfoParams]
     Title = '加蛋加葱花～'
@@ -54,3 +55,13 @@ buildFuture = false
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
+
+[related]
+  threshold = 80
+  includeNewer = true
+  [[related.indices]]
+    name = 'tags'
+    weight = 100
+  [[related.indices]]
+    name = 'categories'
+    weight = 50

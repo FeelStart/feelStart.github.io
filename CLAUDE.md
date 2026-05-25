@@ -17,7 +17,11 @@ docs/          # 文档、规范（未来）
 scripts/       # 自动化脚本（未来）
 hugo/
   content/
-    posts/     # 所有文章
+    posts/
+      apple/   # Swift / iOS / OC / Bug
+      tech/    # 工具、媒体、数据库等
+      reading/ # 读书笔记
+      life/    # 生活、规划、随笔
     search.md  # 搜索页
     archives.md # 归档页
   static/
@@ -72,8 +76,17 @@ tags: ["Swift"]
 ## 新建文章
 
 ```bash
+./scripts/new-post.sh
+```
+
+或手动：
+
+```bash
 cd hugo
-hugo new content posts/文章名.md
+hugo new content posts/apple/文章名.md   # Swift/iOS/OC/Bug
+hugo new content posts/tech/文章名.md    # 工具、媒体等
+hugo new content posts/reading/文章名.md # 读书笔记
+hugo new content posts/life/文章名.md    # 生活随笔
 ```
 
 ## 本地预览

@@ -22,7 +22,7 @@ void add_arrays(int *array1,
 
 上面的例子是单线程执行的，要循环多次才得到结果。我们可以利用 GPU 并发地计算。
 
-![](/images/metal_compute_arrays.png)
+![](/images/apple/metal_compute_arrays.png)
 
 如图，我们可以把上面的计算步骤放在不同的线程执行，这样可以更快得到结果。下面，我们用 GPU 计算数组结果。
 

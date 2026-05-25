@@ -44,7 +44,7 @@ sqlite 主文件前 100 字节表示头部。
 
 数据库文件由一个个页组成。页大小是 512 和 65536 之间的 2 的幂。第一个页的页码为 1。
 
-![](images/sqlite_page.png)
+![](/images/tech/sqlite_page.png)
 
 
 ## 2.1 页的用法
@@ -62,7 +62,7 @@ sqlite 不会对该页进行对写。
 * 主干空闲页 (trunk page)
 * 叶子空闲页 (leaf page)
 
-![](images/sqlite_freelist_page.png)
+![](/images/tech/sqlite_freelist_page.png)
 
 ### 2.1.3 用于 b-tree 的页
 
