@@ -1,0 +1,56 @@
+baseURL = 'https://feelstart.github.io'
+languageCode = 'zh-CN'
+title = '加蛋加葱花～'
+theme = 'PaperMod'
+defaultContentLanguage = 'zh-cn'
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+
+[pagination]
+  pagerSize = 20
+
+[menus]
+  [[menus.main]]
+    name = '技术'
+    url = '/categories/技术'
+    weight = 1
+  [[menus.main]]
+    name = '读书'
+    url = '/categories/读书'
+    weight = 2
+  [[menus.main]]
+    name = '生活'
+    url = '/categories/生活'
+    weight = 3
+  [[menus.main]]
+    name = '归档'
+    url = '/archives'
+    weight = 4
+  [[menus.main]]
+    name = '搜索'
+    url = '/search'
+    weight = 5
+
+[params]
+  author = '加蛋加葱花～'
+  description = 'iOS 开发者的技术博客'
+  defaultTheme = 'auto'
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+
+  [params.homeInfoParams]
+    Title = '加蛋加葱花～'
+    Content = 'iOS 开发者，记录技术与生活'
+
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/FeelStart'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
